@@ -1,0 +1,13 @@
+dlib==19.24.2
+numpy==1.24.0
+Pillow
+joblib==1.3.2
+tensorflow
+matplotlib==3.6.3
+scikit-learn==1.1.3
+tqdm==4.64.0
+gurobipy
+scipy==1.9.3
+seaborn==0.11.2
+torch==2.0.1
+pandas==1.5.3

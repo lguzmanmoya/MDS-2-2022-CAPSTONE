@@ -62,5 +62,3 @@ Estos enfoques y técnicas son fundamentales para desarrollar sistemas eficaces 
    ```bash
    git clone https://github.com/lguzmanmoya/MDS-2-2022-CAPSTONE.git
    cd MDS-2-2022-CAPSTONE
-
-2. pip install -r requirements.txt

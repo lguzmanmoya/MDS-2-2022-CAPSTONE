@@ -56,9 +56,24 @@ La optimización del orden de ejecución de los modelos se puede lograr mediante
 
 Estos enfoques y técnicas son fundamentales para desarrollar sistemas eficaces de detección de fraude en imágenes, mejorando tanto la precisión como la eficiencia operativa al tiempo que cumplen con los requisitos legales y éticos.
 
+
+## Licencias
+
+Este proyecto utiliza las siguientes librerías:
+
+- DLIB y los siguientes modelos: dlib_face_recognition_resnet_model_v1.dat y shape_predictor_68_face_landmarks.dat. Ambos se encuentran bajo licencia Boost Software License, versión 1.0.
+- Facenet-pytorch, agenet y sus pesos, los que están distribuidos bajo la licencia MIT.
+  
+
 ## Instrucciones de Uso
 
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/lguzmanmoya/MDS-2-2022-CAPSTONE.git
    cd MDS-2-2022-CAPSTONE
+
+2. Bajar weights.pt, este archivo no se puede dejar en github por temas de tamaño. Se baja de [gtihub, Pytorch-Age-Estimation](https://github.com/manhcuong02/Pytorch-Age-Estimation).
+
+3. Instalación de dependencias
+   ```bash
+   pip install -r requirements.txt

@@ -18,6 +18,9 @@ El presente trabajo corresponde a los respaldos del proyecto capstone del Magist
 **Correferente:**
    - **Fabián Palma** – Magíster en Data Science, Gerente de Riesgo de AB Servicios Financieros    
 
+## disclaimer
+
+Todas las imágenes y personas que aparecen en el presente repositorio son imágenes sintéticas creadas usando STYLEGAN.
 
 ## Descripción
 

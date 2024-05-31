@@ -1,4 +1,4 @@
-# Modelo de Detección de fraude biométrico en el proceso de onboarding digital
+# On the Use of Synthetic Data to Ensure Personal Data Protection by Design in Fraud Detection Models.
 <div style="text-align: center;">
 <img src="./data/imagenes_repo/intro.png" style="width:500px;height:500px;">
 </div>
@@ -18,63 +18,110 @@ El presente trabajo corresponde a los respaldos del proyecto capstone del Magist
 **Correferente:**
    - **Fabián Palma** – Magíster en Data Science, Gerente de Riesgo de AB Servicios Financieros    
 
-## disclaimer
+## Disclaimer
 
-Todas las imágenes y personas que aparecen en el presente repositorio son imágenes sintéticas creadas usando STYLEGAN.
+All images and people that appear in this repository are synthetic images created using STYLEGAN.
 
-## Descripción
 
-El avance de la omnicanalidad ha revolucionado la forma en que las empresas de retail y crédito interactúan con sus clientes. La creciente adopción de canales digitales no solo ha mejorado la eficiencia operativa, sino que también ha aumentado la necesidad de mecanismos robustos de identificación y verificación de identidad. Esto hace esencial la integración de métodos que comparan selfies en tiempo real con fotos de documentos de identidad para prevenir fraudes y garantizar la autenticidad de los usuarios.
 
-## Desafíos Técnicos y Logísticos
+## Abstract
+The increasing adoption of digital channels by retail and credit sectors has improved operational efficiency and heightened the need for robust identification and verification mechanisms. However, training detection models while complying with new personal data protection regulations presents complexities: on the one hand, training highly complex models requires a large number of images, and on the other hand, the protection of personal data, particularly biometric data, necessitates specific permissions authorizing their use for these purposes.
+This paper presents a methodology based on four key elements:
+A CRISP-DM-like methodology that integrates Data Protection Impact Assessment (DPIA) to ensure adherence to data protection regulations.
+The use of Synthetic data to provide enough information to train balanced models.
+The use of simple models that focus on the strengths of algorithms and the weaknesses of each fraud attempt rather than a single highly complex solution.
+A modular sequential pipeline optimized for the costs of Type I and Type II errors, allowing for the integration of multiple specialized models.
+The proposed solution was validated through a business case in a retail finance company serving low-income segments, showcasing the methodology's effectiveness.
 
-La validación de imágenes presenta varios desafíos técnicos y logísticos. Requiere grandes volúmenes de datos diversificados para entrenar modelos de reconocimiento facial precisos y justos, manejando variaciones en iluminación, poses y expresiones faciales, lo cual incrementa significativamente la complejidad del entrenamiento.
+## Keywords
 
-Por ejemplo, entrenar un modelo robusto de reconocimiento facial puede requerir millones de imágenes diversificadas y hardware especializado como GPUs de alto rendimiento, incrementando los costos de implementación.
+Omnichannel, Identity Fraud Detection, Synthetic Data, Modular Model Pipelines, Data Protection, CRISP-DM, DPIA, Regulatory Compliance.
 
-## Errores Tipo I y Tipo II
+## I. Introduction
 
-Es crucial equilibrar los errores tipo I (falsos positivos) y tipo II (falsos negativos) más que enfocarse únicamente en la precisión global del modelo. Un falso positivo, donde se detecta fraude incorrectamente, puede causar problemas significativos al usuario legítimo y afectar la confianza del cliente. Por otro lado, un falso negativo permite que el fraude pase desapercibido, resultando en pérdidas financieras para la empresa.
+### A. Problem Statement
 
-## Restricciones Legales y Éticas
+The primary issue addressed in this paper is the fraudulent use of stolen identity cards, where individuals substitute their photos on the stolen IDs to validate themselves. The goal is to develop a system that can accurately determine whether an identity validation is legitimate or fraudulent while ensuring compliance with regulatory standards.
 
-Las restricciones legales y éticas juegan un papel crucial en la implementación de estos sistemas. El Reglamento General de Protección de Datos (GDPR) de la Unión Europea impone estrictas normas sobre la recopilación y procesamiento de datos personales, incluyendo imágenes faciales, y requiere el consentimiento explícito de los usuarios. Las infracciones pueden resultar en multas significativas. Estas regulaciones no solo protegen la privacidad de los usuarios, sino que también imponen desafíos adicionales a las empresas que deben equilibrar la seguridad y la conformidad normativa.
+### B. Contributions
 
-## Caso de Negocio
+1. Integration of synthetic data to enhance model training and ensure privacy.
+2. Development of a modular pipeline for fraud detection.
+3. Introduction of a CRISP-DM evolution incorporating DPIA for regulatory compliance.
+4. Validation through a real-world business case in retail finance.
 
-En este contexto, se ha desarrollado un caso de negocio específico para una empresa de retail que ofrece servicios financieros asociados y se enfoca en el segmento de bajos ingresos. La empresa ha migrado a canales digitales y enfrenta el problema de fraudes de identidad, donde individuos utilizan tarjetas de identidad robadas y las falsifican poniendo fotos de ellos mismos para validarse. El objetivo es desarrollar un sistema capaz de identificar si una validación es legítima o fraudulenta, comparando dos imágenes: una del rostro en el documento de identidad y otra del rostro de la persona que se está validando. Este sistema debe ser robusto, preciso y capaz de operar en condiciones variadas de iluminación y calidad de imagen.
+## II. Background and Related Work
 
-## Metodología Propuesta
+### A. Omnichannel Strategies in Retail Finance
 
-Para resolver este problema, se propone una evolución de la metodología CRISP-DM que integre el Data Protection Impact Assessment (DPIA), asegurando que la solución cumpla plenamente con las normativas de protección de datos personales, evaluando y mitigando los riesgos asociados desde las primeras fases del proyecto hasta su implementación y operación.
+The advancement of omnichannel strategies has revolutionized how retail and credit companies interact with their customers. The integration of multiple channels, both digital and physical, has significantly enhanced operational efficiency and customer experience. However, this shift has also increased the complexity of identity verification processes, necessitating more sophisticated methods to prevent fraud.
 
-### Uso de Datos Sintéticos
+### B. Identity Verification Techniques
 
-De este proceso se concluyó que el uso de datos sintéticos es una alternativa viable. El uso de datos sintéticos permite la creación de un conjunto de datos diversificado y equilibrado, mitigando los problemas de privacidad asociados con el uso de datos reales.
+Traditional identity verification techniques, such as manual checks of identity documents, are inadequate in the digital age. Advanced methods, including biometric verification, facial recognition, and real-time selfie comparisons with ID photos, have emerged. Despite their advantages, these techniques face challenges like variability in lighting, poses, and expressions.
 
-Proyectos como DigiFace-1M de Microsoft y frameworks como StyleGAN2 han demostrado la efectividad de las imágenes sintéticas para mejorar la precisión y reducir el sesgo en modelos de reconocimiento facial.
+### C. Synthetic Data in Machine Learning
 
-### Modelos de Reconocimiento de Fraude
+Synthetic data has become a valuable resource in training machine learning models, especially when dealing with sensitive information like facial images. Projects like Microsoft’s DigiFace-1M and frameworks like StyleGAN2 have demonstrated the effectiveness of synthetic data in enhancing model performance and reducing biases while maintaining privacy.
 
-El uso de modelos de reconocimiento de fraude en imágenes es complejo debido a la necesidad de identificar patrones sutiles y manipulaciones en las imágenes. Los modelos avanzados de machine learning (ML) y deep learning (DL) son esenciales para analizar grandes volúmenes de datos y adaptarse a patrones de fraude en constante evolución, requiriendo una alta capacidad computacional y un entrenamiento intensivo con grandes conjuntos de datos diversificados.
+## III. Methodology
 
-### Simplificación del Análisis
+### A. Evolution of CRISP-DM
 
-Una alternativa para simplificar la detección de fraude en imágenes es focalizar el análisis en zonas vulnerables específicas de las imágenes, como áreas donde es más probable que ocurran manipulaciones. Este enfoque puede reducir la complejidad del modelo y mejorar la eficiencia del proceso de detección. Por ejemplo, el uso de landmarks (puntos de referencia) permite identificar áreas específicas y analizar inconsistencias en estas regiones focalizadas, mejorando la detección de manipulaciones sutiles.
+The proposed methodology evolves the traditional CRISP-DM framework by integrating Data Protection Impact Assessment (DPIA). This integration ensures that data protection considerations are embedded throughout the project lifecycle, from business understanding to deployment.
 
-### Cañería Modular
+### B. Data Collection and Synthetic Data Generation
 
-En lugar de utilizar un único modelo complejo, la integración de múltiples modelos simples en una cañería modular puede mejorar la precisión y la robustez de la detección de fraude en imágenes. Cada modelo puede estar especializado en detectar tipos específicos de fraude o manipulación, y sus resultados pueden combinarse para proporcionar una decisión final más precisa.
+Data collection involves gathering diverse and high-quality images to train robust facial recognition models. Given privacy concerns, synthetic data generated using tools like StyleGAN2 offers a viable alternative. Synthetic images mimic real-world variations in lighting, poses, and expressions, providing a rich dataset for model training without compromising user privacy.
 
-### Optimización del Orden de Ejecución
+### C. Model Training and Evaluation
 
-El orden de los modelos en una cañería de ejecución es crucial para optimizar el balance entre errores tipo I y tipo II. Determinar el orden óptimo de ejecución de los modelos puede maximizar la precisión y minimizar los falsos positivos (errores tipo I) y falsos negativos (errores tipo II). Técnicas de optimización, como el uso de algoritmos evolutivos y análisis de sensibilidad, pueden ayudar a encontrar el mejor orden de ejecución, priorizando los modelos más precisos en las primeras etapas para filtrar rápidamente los casos más obvios de fraude y dejando los casos más ambiguos para análisis más detallados en etapas posteriores.
+Training robust facial recognition models requires handling significant variability in image data. The use of GPUs and other specialized hardware accelerates this process. Models are evaluated based on their accuracy and their ability to minimize Type I (false positives) and Type II (false negatives) errors.
 
-La optimización del orden de ejecución de los modelos se puede lograr mediante análisis iterativos y evaluaciones basadas en métricas de rendimiento como la matriz de confusión, que mide los verdaderos positivos, verdaderos negativos, falsos positivos y falsos negativos. Integrar técnicas de optimización en el diseño de la cañería permite ajustar dinámicamente el orden de los modelos según el rendimiento actual y las características del conjunto de datos.
+### D. Modular Model Pipeline
 
-## Conclusión
+A modular pipeline approach is employed, where multiple simpler models are integrated to detect specific types of fraud. Each model focuses on particular aspects of the image, such as landmarks and other vulnerable regions, and their combined outputs enhance the overall accuracy and robustness of the system.
 
-Estos enfoques y técnicas son fundamentales para desarrollar sistemas eficaces de detección de fraude en imágenes, mejorando tanto la precisión como la eficiencia operativa al tiempo que cumplen con los requisitos legales y éticos.
+### E. Optimization Techniques
+
+Optimization techniques, such as evolutionary algorithms and sensitivity analysis, are used to determine the optimal order of model execution. This process helps balance the trade-off between minimizing false positives and false negatives, thereby improving the overall effectiveness of the fraud detection system.
+
+## IV. Case Study: Retail Finance Company
+
+### A. Business Context
+
+The case study focuses on a retail finance company serving low-income segments. The company has transitioned to digital channels and faces challenges with identity fraud, where stolen ID cards are manipulated to validate false identities.
+
+### B. Implementation
+
+The proposed system is implemented within the company's existing infrastructure. Modifications are made to accommodate the specific needs of the company, such as handling low-quality images and ensuring compliance with relevant regulations.
+
+### C. Results
+
+The implementation results are evaluated based on key metrics such as accuracy, false positive rate, and false negative rate. The system demonstrates significant improvements over baseline methods, particularly in reducing false positives, which enhances user trust and operational efficiency.
+
+## V. Discussion
+
+### A. Technical and Logistical Challenges
+
+Implementing the proposed system involves several technical and logistical challenges, including the need for large volumes of diversified data, high computational resources, and ensuring real-time processing capabilities. Synthetic data generation and modular pipeline integration are critical in addressing these challenges.
+
+### B. Legal and Ethical Considerations
+
+Legal and ethical considerations are paramount in the development and deployment of identity verification systems. Compliance with regulations like the GDPR ensures that user privacy is protected, and the DPIA integration helps manage risks associated with data processing.
+
+### C. Future Work
+
+Future work could explore further enhancements in synthetic data generation, such as using more advanced GAN models. Additionally, the modular pipeline approach could be extended to other types of biometric verification and fraud detection applications.
+
+## VI. Conclusion
+
+This paper presents a comprehensive approach to identity fraud detection in retail finance using synthetic data and modular model pipelines. The proposed methodology ensures compliance with data protection regulations and demonstrates significant improvements in fraud detection accuracy and operational efficiency.
+
+## References
+
+
+
 
 
 ## Licencias

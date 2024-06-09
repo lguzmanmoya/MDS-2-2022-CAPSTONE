@@ -26,97 +26,81 @@ All images and people that appear in this repository are synthetic images create
 
 ## Abstract
 The increasing adoption of digital channels by retail and credit sectors has improved operational efficiency and heightened the need for robust identification and verification mechanisms. However, training detection models while complying with new personal data protection regulations presents complexities: on the one hand, training highly complex models requires a large number of images, and on the other hand, the protection of personal data, particularly biometric data, necessitates specific permissions authorizing their use for these purposes.
-This paper presents a methodology based on four key elements:
-A CRISP-DM-like methodology that integrates Data Protection Impact Assessment (DPIA) to ensure adherence to data protection regulations.
-The use of Synthetic data to provide enough information to train balanced models.
-The use of simple models that focus on the strengths of algorithms and the weaknesses of each fraud attempt rather than a single highly complex solution.
-A modular sequential pipeline optimized for the costs of Type I and Type II errors, allowing for the integration of multiple specialized models.
-The proposed solution was validated through a business case in a retail finance company serving low-income segments, showcasing the methodology's effectiveness.
+This work presents a methodology based on four key elements: A CRISP-DM-like methodology that integrates Data Protection Impact Assessment (DPIA) to ensure adherence to data protection regulations. The use of Synthetic data to provide enough information to train balanced models. The use of simple models that focus on the strengths of algorithms and the weaknesses of each fraud attempt rather than a single highly complex solution. A modular sequential pipeline optimized for the costs of Type I and Type II errors, allowing for the integration of multiple specialized models.
+The proposed solution was applied through a business case in a retail finance company serving low-income segments, showcasing the methodology's effectiveness.
 
 ## Keywords
 
-Omnichannel, Identity Fraud Detection, Synthetic Data, Modular Model Pipelines, Data Protection, CRISP-DM, DPIA, Regulatory Compliance.
+Identity Fraud Detection, Synthetic Data, Modular Model Pipelines, Data Protection, CRISP-DM, DPIA, Regulatory Compliance.
 
 ## I. Introduction
 
-### A. Problem Statement
+### Problem Statement
 
-The primary issue addressed in this paper is the fraudulent use of stolen identity cards, where individuals substitute their photos on the stolen IDs to validate themselves. The goal is to develop a system that can accurately determine whether an identity validation is legitimate or fraudulent while ensuring compliance with regulatory standards.
+The primary issue addressed is the fraudulent use of stolen identity cards, where individuals substitute their photos on the stolen IDs to validate themselves. The goal is to develop a system that can accurately determine whether an identity validation is legitimate or fraudulent while ensuring compliance with regulatory standards.
 
-### B. Contributions
+## II. Background
 
-1. Integration of synthetic data to enhance model training and ensure privacy.
-2. Development of a modular pipeline for fraud detection.
-3. Introduction of a CRISP-DM evolution incorporating DPIA for regulatory compliance.
-4. Validation through a real-world business case in retail finance.
-
-## II. Background and Related Work
-
-### A. Omnichannel Strategies in Retail Finance
+### Omnichannel Strategies in Retail Finance
 
 The advancement of omnichannel strategies has revolutionized how retail and credit companies interact with their customers. The integration of multiple channels, both digital and physical, has significantly enhanced operational efficiency and customer experience. However, this shift has also increased the complexity of identity verification processes, necessitating more sophisticated methods to prevent fraud.
 
-### B. Identity Verification Techniques
+### Identity Verification Techniques
 
 Traditional identity verification techniques, such as manual checks of identity documents, are inadequate in the digital age. Advanced methods, including biometric verification, facial recognition, and real-time selfie comparisons with ID photos, have emerged. Despite their advantages, these techniques face challenges like variability in lighting, poses, and expressions.
 
-### C. Synthetic Data in Machine Learning
+### Synthetic Data in Machine Learning
 
 Synthetic data has become a valuable resource in training machine learning models, especially when dealing with sensitive information like facial images. Projects like Microsoft’s DigiFace-1M and frameworks like StyleGAN2 have demonstrated the effectiveness of synthetic data in enhancing model performance and reducing biases while maintaining privacy.
 
 ## III. Methodology
 
-### A. Evolution of CRISP-DM
+### Evolution of CRISP-DM
 
 The proposed methodology evolves the traditional CRISP-DM framework by integrating Data Protection Impact Assessment (DPIA). This integration ensures that data protection considerations are embedded throughout the project lifecycle, from business understanding to deployment.
 
-### B. Data Collection and Synthetic Data Generation
+### Data Collection and Synthetic Data Generation
 
 Data collection involves gathering diverse and high-quality images to train robust facial recognition models. Given privacy concerns, synthetic data generated using tools like StyleGAN2 offers a viable alternative. Synthetic images mimic real-world variations in lighting, poses, and expressions, providing a rich dataset for model training without compromising user privacy.
 
-### C. Model Training and Evaluation
+### Model Training and Evaluation
 
 Training robust facial recognition models requires handling significant variability in image data. The use of GPUs and other specialized hardware accelerates this process. Models are evaluated based on their accuracy and their ability to minimize Type I (false positives) and Type II (false negatives) errors.
 
-### D. Modular Model Pipeline
+### Modular Model Pipeline
 
 A modular pipeline approach is employed, where multiple simpler models are integrated to detect specific types of fraud. Each model focuses on particular aspects of the image, such as landmarks and other vulnerable regions, and their combined outputs enhance the overall accuracy and robustness of the system.
 
-### E. Optimization Techniques
+### Optimization Techniques
 
-Optimization techniques, such as evolutionary algorithms and sensitivity analysis, are used to determine the optimal order of model execution. This process helps balance the trade-off between minimizing false positives and false negatives, thereby improving the overall effectiveness of the fraud detection system.
+Optimization techniques and sensitivity analysis, are used to determine the optimal order of model execution. This process helps balance the trade-off between minimizing false positives and false negatives, thereby improving the overall effectiveness of the fraud detection system.
 
 ## IV. Case Study: Retail Finance Company
 
-### A. Business Context
+### Business Context
 
 The case study focuses on a retail finance company serving low-income segments. The company has transitioned to digital channels and faces challenges with identity fraud, where stolen ID cards are manipulated to validate false identities.
 
-### B. Implementation
-
-The proposed system is implemented within the company's existing infrastructure. Modifications are made to accommodate the specific needs of the company, such as handling low-quality images and ensuring compliance with relevant regulations.
-
-### C. Results
+### Results
 
 The implementation results are evaluated based on key metrics such as accuracy, false positive rate, and false negative rate. The system demonstrates significant improvements over baseline methods, particularly in reducing false positives, which enhances user trust and operational efficiency.
 
 ## V. Discussion
 
-### A. Technical and Logistical Challenges
+This work presents four innovative points:
+- CRISP-DM Methodology Integrated with DPIA: Integrating DPIA into the CRISP-DM methodology ensures compliance with data protection regulations, providing a robust framework to manage privacy risks throughout the project lifecycle.
+- Use of Synthetic Data: Synthetic data allowed us to generate the large volumes necessary to train balanced models without compromising privacy. The added randomizations improve the generalization capacity of the models, partly explaining the good results obtained.
+- Simple and Effective Models: Using simple models focused on the strengths of the algorithms and the weaknesses of each fraud attempt offers an innovative and effective solution. Instead of relying on a single complex solution, this modular strategy allows for more flexible adaptation and updating.
+- Sequential Modular Pipeline: Implementing a sequential modular pipeline optimized for Type I and Type II error costs allows for integrating multiple specialized models. This approach improves the accuracy and robustness of the fraud detection system and makes it easier to maintain and scale.
 
-Implementing the proposed system involves several technical and logistical challenges, including the need for large volumes of diversified data, high computational resources, and ensuring real-time processing capabilities. Synthetic data generation and modular pipeline integration are critical in addressing these challenges.
+The results obtained surpass the company's current methods. The synthetic data generated, with appropriate randomizations, has proven to be effective in improving the generalization of the models. However, the system's production results should be closer to the company's current numbers.
 
-### B. Legal and Ethical Considerations
-
-Legal and ethical considerations are paramount in the development and deployment of identity verification systems. Compliance with regulations like the GDPR ensures that user privacy is protected, and the DPIA integration helps manage risks associated with data processing.
-
-### C. Future Work
-
-Future work could explore further enhancements in synthetic data generation, such as using more advanced GAN models. Additionally, the modular pipeline approach could be extended to other types of biometric verification and fraud detection applications.
+The methodology addresses a critical problem of identity theft in the financial sector, proposing an innovative solution. With the imminent release of a new Identity Card in Chile, a solution based on a single step would have become obsolete. This methodological approach allows for easy system modification, using existing data to train additional pipeline elements.
+Although the results are promising, the system must be validated with customer-specific data for proper fine-tuning. Future research could improve synthetic data generation algorithms to make them even more realistic and extend the modular approach to other biometric verification and fraud detection applications.
 
 ## VI. Conclusion
 
-This paper presents a comprehensive approach to identity fraud detection in retail finance using synthetic data and modular model pipelines. The proposed methodology ensures compliance with data protection regulations and demonstrates significant improvements in fraud detection accuracy and operational efficiency.
+This work presents a comprehensive approach to identity fraud detection in retail finance using synthetic data and modular model pipelines. The proposed methodology ensures compliance with data protection regulations and demonstrates significant improvements in fraud detection accuracy and operational efficiency.
 
 ## References
 

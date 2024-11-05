@@ -1,12 +1,10 @@
----
-title: "Uso de Datos Sintéticos para garantizar la protección de datos personales por diseño en el entrenamiento de modelos de detección de fraude de identidad"
+# Uso de Datos Sintéticos para garantizar la protección de datos personales por diseño en el entrenamiento de modelos de detección de fraude de identidad
 authors:
   - "Leandro Guzman, MDS2-2022, UAI"
   - "Carlos Muñoz, MDS2-2022, UAI"
   - "Francisco Guzman, MDS2-2022, UAI"
   - "Cristopher Lincoleo, MDS2-2022, UAI"
   - "Andrés Pumarino, Profesor Guía"
----
 
 ## Resumen
 

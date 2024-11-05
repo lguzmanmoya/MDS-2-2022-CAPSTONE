@@ -7,7 +7,7 @@
 El presente trabajo corresponde a los respaldos del proyecto capstone del Magister en Data Science de la Universidad Adolfo Ibañez. MSD-2-2022.
 
 **Equipo:**
-   - **Leandro Guzmán Moya** - Ingeniero Civil Químico
+   - **Leandro Guzmán Moya** 
    - **Carlos Muñoz Cavieres**
    - **Cristopher Lincoleo Oyarce**
    - **Francisco Guzmán Valderrama**

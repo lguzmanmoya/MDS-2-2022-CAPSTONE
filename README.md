@@ -15,9 +15,6 @@ El presente trabajo corresponde a los respaldos del proyecto capstone del Magist
 **Profesor Guía:**
    - **Andrés Pumarino** - Abogado | UAI, Magíster en Negocios UAI, Profesor Fac. Ingeniería PUC, UAI/Derecho y tecnología.
 
-**Correferente:**
-   - **Fabián Palma** – Magíster en Data Science, Gerente de Riesgo de AB Servicios Financieros    
-
 ## Disclaimer
 
 All images and people that appear in this repository are synthetic images created using STYLEGAN.
